@@ -3,9 +3,12 @@ package com.git.dao.mapper;
 import com.git.dao.pojo.Demo;
 import com.git.dao.pojo.DemoExample;
 import java.util.List;
+
+import com.git.datasource.DataSource;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
+@DataSource("datasourceKey")
 public interface DemoMapper {
     int countByExample(DemoExample example);
 

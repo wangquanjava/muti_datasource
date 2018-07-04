@@ -264,29 +264,5 @@
         </resources>
     </build>
 
-    <!--第三部分：配置根据maven命令激活的加载-->
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <!-- 默认激活开发配制 -->
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <filters>
-                    <filter>src/main/resources/jdbc_development.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <profile>
-            <id>pro</id>
-            <build>
-                <filters>
-                    <filter>src/main/resources/jdbc_product.properties</filter>
-                </filters>
-            </build>
-        </profile>
-    </profiles>
-
 
 </project>
