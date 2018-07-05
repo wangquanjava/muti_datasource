@@ -10,6 +10,10 @@ public class MultipleRoutingDataSource extends AbstractRoutingDataSource {
     private static final Map<String, String> packageDataSource = new HashMap<String, String>();
 
 
+    /**
+     * 当需要和数据库建立session的时候, 就会在这里获取key, 从而找到datasource对象
+     * @return
+     */
     @Override
     protected Object determineCurrentLookupKey() {
         String dsName = dataSourceKey.get();

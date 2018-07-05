@@ -7,13 +7,21 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Method;
 
+/**
+ * 切mapper层和@DataSource注解
+ * 取出注解中的key, 放入ThreadLocal, 提供给下游使用
+ */
 @Component
 @Aspect
+// 一定要比@Transactional之前确定数据源
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class MultipleDataSourceAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(MultipleDataSourceAspect.class);

@@ -40,16 +40,16 @@ public class DemoService {
     }
 
 
-//    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
     @DataSource("datasourceKey")
     public Demo insert() {
         Demo demo = new Demo();
         demo.setStartDate(new Date());
         demoMapper.insert(demo);
 
-        DemoBak demoBak = new DemoBak();
-        demoBak.setStartDate(new Date());
-        demoBakMapper.insert(demoBak);
-        return demo;
+//        DemoBak demoBak = new DemoBak();
+//        demoBak.setStartDate(new Date());
+//        demoBakMapper.insert(demoBak);
+        return null;
     }
 }
